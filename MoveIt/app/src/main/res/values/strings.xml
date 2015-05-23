@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MoveIt</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_events_list">EventsList</string>
+    <string name="title_activity_event_add">EventAdd</string>
+</resources>
