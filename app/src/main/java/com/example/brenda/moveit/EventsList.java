@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 
 public class EventsList extends ActionBarActivity {
 
-    LinearLayout layout = (LinearLayout) findViewById(R.id.listView);
+    ScrollView layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class EventsList extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_events_list, menu);
+        layout = (ScrollView) findViewById(R.id.listEvents);
         return true;
     }
 

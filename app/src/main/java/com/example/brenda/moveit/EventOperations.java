@@ -37,7 +37,7 @@ public class EventOperations {
             if(!days[i+starti]){
                 continue;
             }
-            if(repeat.compareTo("daily")==0) {
+            if(repeat.compareTo("weekly")==0) {
                 cursor = database.rawQuery("SELECT strftime("+date+",'+"+(7+i)+" day');",null);
                 cursor.moveToFirst();
                 addHelper(name,loc,cursor.getString(0),hour,min,addTime,priority,alarmType,repeat);

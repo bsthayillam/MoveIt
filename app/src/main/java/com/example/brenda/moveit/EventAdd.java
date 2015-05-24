@@ -27,10 +27,14 @@ import java.util.Calendar;
 public class EventAdd extends ActionBarActivity {
 
     EditText description, location, additionalTime;
-    Button whenDate, whenTime;
+    Button whenDate, whenTime, submit;
     RadioButton alarm, vibrate, priorityYes, priorityNo;
-    private int month, date, year, hour, min;
-    ScrollView repeat;
+    CheckBox weekly, mondays, tuesdays, wednesdays, thursdays, fridays, saturdays, sundays, monthly;
+    private String locationVal;
+    private int month, date, year, hour, min, addTime;
+    private boolean priority;
+    private String alarmType;
+    private EventOperations eventDBOperations;
 
     static final int DATE_PICKER_ID = 1111;
     static final int TIME_PICKER_ID = 2222;
@@ -49,35 +53,17 @@ public class EventAdd extends ActionBarActivity {
         priorityNo = (RadioButton) findViewById(R.id.priorityNo);
         alarm = (RadioButton) findViewById(R.id.alarm);
         vibrate = (RadioButton) findViewById(R.id.vibration);
-        repeat = (ScrollView) findViewById(R.id.listView);
+        submit = (Button) findViewById(R.id.submit);
 
-        RadioButton once = new RadioButton(getApplicationContext());
-        once.setText("Once");
-        repeat.addView(once);
-        RadioButton mondays = new RadioButton(getApplicationContext());
-        once.setText("Mondays");
-        repeat.addView(mondays);
-        RadioButton tuesdays = new RadioButton(getApplicationContext());
-        once.setText("Tuesdays");
-        repeat.addView(tuesdays);
-        RadioButton wednesdays = new RadioButton(getApplicationContext());
-        once.setText("Wednesdays");
-        repeat.addView(wednesdays);
-        RadioButton thursdays = new RadioButton(getApplicationContext());
-        once.setText("Thursdays");
-        repeat.addView(thursdays);
-        RadioButton fridays = new RadioButton(getApplicationContext());
-        once.setText("Fridays");
-        repeat.addView(fridays);
-        RadioButton saturdays = new RadioButton(getApplicationContext());
-        once.setText("Saturdays");
-        repeat.addView(saturdays);
-        RadioButton sundays = new RadioButton(getApplicationContext());
-        once.setText("Sundays");
-        repeat.addView(sundays);
-        RadioButton monthly = new RadioButton(getApplicationContext());
-        once.setText("Monthly");
-        repeat.addView(monthly);
+        weekly = (CheckBox) findViewById(R.id.weekly);
+        mondays = (CheckBox) findViewById(R.id.mondays);
+        tuesdays = (CheckBox) findViewById(R.id.tuesdays);
+        wednesdays = (CheckBox) findViewById(R.id.wednesdays);
+        thursdays = (CheckBox) findViewById(R.id.thursdays);
+        fridays = (CheckBox) findViewById(R.id.fridays);
+        saturdays = (CheckBox) findViewById(R.id.saturdays);
+        sundays = (CheckBox) findViewById(R.id.sundays);
+        monthly = (CheckBox) findViewById(R.id.monthly);
 
         final Calendar c = Calendar.getInstance();
         year  = c.get(Calendar.YEAR);
@@ -95,6 +81,39 @@ public class EventAdd extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 showDialog(TIME_PICKER_ID);
+            }
+        });
+        submit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                locationVal = location.getText().toString();
+                addTime = Integer.parseInt(additionalTime.getText().toString());
+                if(priorityYes.isChecked())
+                {
+                    priority = true;
+                }
+                else if(priorityNo.isChecked())
+                {
+                    priority = false;
+                }
+                if(alarm.isChecked())
+                    alarmType = "alarm";
+                else if(vibrate.isChecked())
+                    alarmType = "vibrate";
+                boolean[] flags = new boolean[7];
+                flags[0] = mondays.isChecked();
+                flags[1] = tuesdays.isChecked();
+                flags[2] = wednesdays.isChecked();
+                flags[3] = thursdays.isChecked();
+                flags[4] = fridays.isChecked();
+                flags[5] = saturdays.isChecked();
+                flags[6] = sundays.isChecked();
+                if(weekly.isChecked() == true)
+                    eventDBOperations.addEvent(description.getText().toString(), locationVal, date, month, year, hour, min, addTime, priority, alarmType, "weekly", flags);
+                else if(monthly.isChecked() == true)
+                    eventDBOperations.addEvent(description.getText().toString(), locationVal, date, month, year, hour, min, addTime, priority, alarmType, "monthly", flags);
+                else
+                    eventDBOperations.addEvent(description.getText().toString(), locationVal, date, month, year, hour, min, addTime, priority, alarmType, "", flags);
             }
         });
     }
