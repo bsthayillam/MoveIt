@@ -6,15 +6,4 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_events_list">EventsList</string>
     <string name="title_activity_event_add">EventAdd</string>
-    <string-array name="repeat_array">
-        <item>Once</item>
-        <item>Mondays</item>
-        <item>Tuesdays</item>
-        <item>Wednesdays</item>
-        <item>Thursdays</item>
-        <item>Fridays</item>
-        <item>Saturdays</item>
-        <item>Sundays</item>
-        <item>Monthly</item>
-    </string-array>
 </resources>

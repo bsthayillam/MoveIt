@@ -11,9 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TimePicker;
@@ -25,10 +28,9 @@ public class EventAdd extends ActionBarActivity {
 
     EditText location, additionalTime;
     Button whenDate, whenTime;
-    Spinner repeat;
-    Switch priority;
     RadioButton alarm, vibrate, priorityYes, priorityNo;
     private int month, date, year, hour, min;
+    ScrollView repeat;
 
     static final int DATE_PICKER_ID = 1111;
     static final int TIME_PICKER_ID = 2222;
@@ -46,12 +48,35 @@ public class EventAdd extends ActionBarActivity {
         priorityNo = (RadioButton) findViewById(R.id.priorityNo);
         alarm = (RadioButton) findViewById(R.id.alarm);
         vibrate = (RadioButton) findViewById(R.id.vibration);
-        repeat = (Spinner) findViewById(R.id.spinner);
+        repeat = (ScrollView) findViewById(R.id.listView);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.repeat_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        repeat.setAdapter(adapter);
+        RadioButton once = new RadioButton(getApplicationContext());
+        once.setText("Once");
+        repeat.addView(once);
+        RadioButton mondays = new RadioButton(getApplicationContext());
+        once.setText("Mondays");
+        repeat.addView(mondays);
+        RadioButton tuesdays = new RadioButton(getApplicationContext());
+        once.setText("Tuesdays");
+        repeat.addView(tuesdays);
+        RadioButton wednesdays = new RadioButton(getApplicationContext());
+        once.setText("Wednesdays");
+        repeat.addView(wednesdays);
+        RadioButton thursdays = new RadioButton(getApplicationContext());
+        once.setText("Thursdays");
+        repeat.addView(thursdays);
+        RadioButton fridays = new RadioButton(getApplicationContext());
+        once.setText("Fridays");
+        repeat.addView(fridays);
+        RadioButton saturdays = new RadioButton(getApplicationContext());
+        once.setText("Saturdays");
+        repeat.addView(saturdays);
+        RadioButton sundays = new RadioButton(getApplicationContext());
+        once.setText("Sundays");
+        repeat.addView(sundays);
+        RadioButton monthly = new RadioButton(getApplicationContext());
+        once.setText("Monthly");
+        repeat.addView(monthly);
 
         final Calendar c = Calendar.getInstance();
         year  = c.get(Calendar.YEAR);

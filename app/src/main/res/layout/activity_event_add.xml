@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/addTime"
         android:layout_below="@id/changeTime"
         android:text="Additional Time (mins):"
@@ -73,31 +73,37 @@
         android:textSize="20dp"
         android:layout_below="@id/time"
         android:id="@+id/highPriority"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
     <RadioGroup
         android:layout_width="fill_parent"
-        android:layout_height="75dp"
+        android:layout_height="30dp"
         android:id="@+id/radioPriority"
         android:layout_marginTop="20dp"
         android:layout_alignTop="@+id/highPriority"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-    <RadioButton
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
         android:text="YES"
         android:id="@+id/priorityYes"/>
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO"
-        android:id="@+id/priorityNo"
-        android:layout_below="@+id/priorityNo"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="75dp"/>
+        android:layout_marginLeft="75dp"
+        android:text="NO"
+        android:id="@+id/priorityNo"/>
 
+        </LinearLayout>
     </RadioGroup>
 
     <TextView
@@ -109,26 +115,31 @@
         android:id="@+id/alarmType"/>
     <RadioGroup
         android:layout_width="fill_parent"
-        android:layout_height="75dp"
+        android:layout_height="30dp"
         android:id="@+id/alarmTypeContainer"
         android:layout_marginTop="20dp"
         android:layout_alignTop="@+id/alarmType"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ring"
+        android:layout_marginLeft="50dp"
         android:id="@+id/alarm"/>
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vibrate"
-        android:id="@+id/vibration"
-        android:layout_below="@+id/alarmType"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="75dp"/>
+        android:layout_marginLeft="75dp"
+        android:id="@+id/vibration"/>
+
+        </LinearLayout>
     </RadioGroup>
 
     <TextView
@@ -137,17 +148,20 @@
         android:text="Repeat:"
         android:id="@+id/repeatPrompt"
         android:layout_below="@+id/alarmTypeContainer"
-        android:layout_marginTop="10dp"
         android:textSize="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Spinner
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/listView"
+        android:layout_below="@+id/repeatPrompt"/>
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/alarmTypeContainer"
-        android:layout_toRightOf="@id/repeatPrompt"/>
+        android:text="Submit"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
