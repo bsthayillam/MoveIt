@@ -10,7 +10,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:id="@+id/description"
+        android:text="Event Name:"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/descriptionText"
+        android:layout_below="@id/description"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/where"
+        android:layout_below="@id/descriptionText"
         android:text="Where:"
         android:textSize="20dp"/>
 
@@ -45,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set Time"
-        android:layout_below="@+id/changeDate"
+        android:layout_below="@id/changeDate"
         android:layout_centerHorizontal="true" />
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +82,7 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/time"
-        android:layout_below="@+id/addTime"
+        android:layout_below="@id/addTime"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -79,7 +98,7 @@
         android:layout_height="30dp"
         android:id="@+id/radioPriority"
         android:layout_marginTop="20dp"
-        android:layout_alignTop="@+id/highPriority"
+        android:layout_alignTop="@id/highPriority"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -118,7 +137,7 @@
         android:layout_height="30dp"
         android:id="@+id/alarmTypeContainer"
         android:layout_marginTop="20dp"
-        android:layout_alignTop="@+id/alarmType"
+        android:layout_alignTop="@id/alarmType"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
         <LinearLayout
@@ -147,7 +166,7 @@
         android:layout_height="wrap_content"
         android:text="Repeat:"
         android:id="@+id/repeatPrompt"
-        android:layout_below="@+id/alarmTypeContainer"
+        android:layout_below="@id/alarmTypeContainer"
         android:textSize="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -156,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:id="@+id/listView"
-        android:layout_below="@+id/repeatPrompt"/>
+        android:layout_below="@id/repeatPrompt"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

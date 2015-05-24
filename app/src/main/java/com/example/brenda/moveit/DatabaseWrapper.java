@@ -9,8 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DatabaseWrapper extends SQLiteOpenHelper{
     public static final String EVENTS = "EVENTS";
+    public static final String NAME = "_description";
     public static final String LOCATION = "_location";
-    public static final String DATE = "_dateInt";
+    public static final String DATE = "_date";
     public static final String TIME_HOUR = "_hour";
     public static final String TIME_MINS = "_mins";
     public static final String ADDITIONAL_TIME = "_addTime";
@@ -19,8 +20,8 @@ public class DatabaseWrapper extends SQLiteOpenHelper{
     public static final String REPEAT = "_repeat";
     private static final String DATABASE_NAME = "EVENTS.db";
     private static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_CREATE = "create table" + EVENTS + "(" + LOCATION +
-            " text, " + DATE + " integer, " + TIME_HOUR + " integer, " + TIME_MINS + " integer, "
+    public static final String DATABASE_CREATE = "create table" + EVENTS + "(" +NAME+" text, "+ LOCATION +
+            " text, " + DATE + " text, " + TIME_HOUR + " integer, " + TIME_MINS + " integer, "
             + ADDITIONAL_TIME + " integer, " + PRIORITY + " char(1), " + ALARM_TYPE + " text, " +
             REPEAT + " text );";
 

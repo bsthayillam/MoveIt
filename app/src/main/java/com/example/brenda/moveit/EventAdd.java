@@ -26,7 +26,7 @@ import java.util.Calendar;
 
 public class EventAdd extends ActionBarActivity {
 
-    EditText location, additionalTime;
+    EditText description, location, additionalTime;
     Button whenDate, whenTime;
     RadioButton alarm, vibrate, priorityYes, priorityNo;
     private int month, date, year, hour, min;
@@ -40,6 +40,7 @@ public class EventAdd extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_add);
 
+        description = (EditText) findViewById(R.id.descriptionText);
         location = (EditText) findViewById(R.id.whereLoc);
         additionalTime = (EditText) findViewById(R.id.time);
         whenDate = (Button) findViewById(R.id.changeDate);

@@ -5,14 +5,19 @@ package com.example.brenda.moveit;
  */
 public class Event {
 
+    private String description;
     private String location;
-    private int date;
+    private String date;
     private int hour;
     private int min;
     private int addTime;
     private boolean priority;
     private String alarmType;
     private String repeat;
+
+    public String getDescription(){return description;}
+
+    public void setDescription(String descr){this.description = descr;}
 
     public String getLocation() {
         return location;
@@ -22,11 +27,11 @@ public class Event {
         this.location = location;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
