@@ -74,34 +74,52 @@
         android:layout_below="@id/time"
         android:id="@+id/highPriority"
         android:layout_marginTop="20dp"/>
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:id="@+id/radioPriority"
+        android:layout_marginTop="20dp"
+        android:layout_alignTop="@+id/highPriority"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <Switch
+    <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Priority"
-        android:id="@+id/priority"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/highPriority"
-        android:layout_centerHorizontal="true" />
+        android:text="YES"
+        android:id="@+id/priorityYes"/>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NO"
+        android:id="@+id/priorityNo"
+        android:layout_below="@+id/priorityNo"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="75dp"/>
+
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Alarm Method (Pick One):"
         android:textSize="20dp"
-        android:layout_below="@id/priority"
-        android:id="@+id/alarmType"
-        android:layout_marginTop="20dp"/>
-
+        android:layout_below="@id/radioPriority"
+        android:id="@+id/alarmType"/>
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:id="@+id/alarmTypeContainer"
+        android:layout_marginTop="20dp"
+        android:layout_alignTop="@+id/alarmType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ring"
-        android:id="@+id/alarm"
-        android:layout_below="@+id/alarmType"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="75dp"/>
+        android:id="@+id/alarm"/>
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -111,13 +129,14 @@
         android:layout_below="@+id/alarmType"
         android:layout_alignParentRight="true"
         android:layout_marginRight="75dp"/>
+    </RadioGroup>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Repeat:"
         android:id="@+id/repeatPrompt"
-        android:layout_below="@+id/alarm"
+        android:layout_below="@+id/alarmTypeContainer"
         android:layout_marginTop="10dp"
         android:textSize="20dp"
         android:layout_alignParentLeft="true"
@@ -128,7 +147,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/alarm"
+        android:layout_below="@+id/alarmTypeContainer"
         android:layout_toRightOf="@id/repeatPrompt"/>
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.brenda.moveit;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,14 +24,16 @@ public class MainActivity extends ActionBarActivity {
         viewEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(),EventsList.class);
+                startActivity(i);
             }
         });
 
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent n = new Intent(getApplicationContext(),EventAdd.class);
+                startActivity(n);
             }
         });
     }

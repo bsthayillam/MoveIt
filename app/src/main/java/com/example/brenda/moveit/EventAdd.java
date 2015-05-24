@@ -3,6 +3,7 @@ package com.example.brenda.moveit;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,7 +27,7 @@ public class EventAdd extends ActionBarActivity {
     Button whenDate, whenTime;
     Spinner repeat;
     Switch priority;
-    RadioButton alarm, vibrate;
+    RadioButton alarm, vibrate, priorityYes, priorityNo;
     private int month, date, year, hour, min;
 
     static final int DATE_PICKER_ID = 1111;
@@ -41,7 +42,8 @@ public class EventAdd extends ActionBarActivity {
         additionalTime = (EditText) findViewById(R.id.time);
         whenDate = (Button) findViewById(R.id.changeDate);
         whenTime = (Button) findViewById(R.id.changeTime);
-        priority = (Switch) findViewById(R.id.priority);
+        priorityYes = (RadioButton) findViewById(R.id.priorityYes);
+        priorityNo = (RadioButton) findViewById(R.id.priorityNo);
         alarm = (RadioButton) findViewById(R.id.alarm);
         vibrate = (RadioButton) findViewById(R.id.vibration);
         repeat = (Spinner) findViewById(R.id.spinner);
